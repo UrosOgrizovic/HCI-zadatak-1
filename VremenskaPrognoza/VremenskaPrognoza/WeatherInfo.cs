@@ -45,7 +45,7 @@ namespace VremenskaPrognoza
 			public double dt { get; set; }
 			public wind wind { get; set; }
 			public main main { get; set; }
-			public List<weather> weatherList { get; set; }
+			public List<weather> weather { get; set; }
 			public coord coordinate { get; set; }
 
 		}

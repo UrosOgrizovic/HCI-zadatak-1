@@ -23,7 +23,7 @@ namespace VremenskaPrognoza
 	public partial class MainWindow : Window
 	{
 		const string APPID = "66382f7d97c7e80060fb8451446e6ffc";
-		string cityName = "Belgrade";
+		string cityName = "New York";
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -40,9 +40,23 @@ namespace VremenskaPrognoza
 
 				WeatherInfo.Root output = result;
 
+
 				lbl_cityName.Content = string.Format("{0}", output.name);
 				lbl_country.Content = string.Format("{0}", output.sys.country);
 				lbl_temp.Content = string.Format("{0} \u00B0"+ "C", output.main.temp);
+				string desc = output.weather[0].description;
+				if (desc == "clear sky") weatherImage.Source = new BitmapImage(new Uri("/images/clear sky.png", UriKind.Relative));
+				else if (desc == "few clouds") weatherImage.Source = new BitmapImage(new Uri("/images/few clouds.png", UriKind.Relative));
+				else if (desc == "scattered clouds") weatherImage.Source = new BitmapImage(new Uri("/images/scattered clouds.png", UriKind.Relative));
+				else if (desc == "thunderstorm") weatherImage.Source = new BitmapImage(new Uri("/images/thunderstorm.png", UriKind.Relative));
+				else if (desc == "rain" || desc == "moderate rain") weatherImage.Source = new BitmapImage(new Uri("/images/rain.png", UriKind.Relative));
+				else if (desc == "broken clouds") weatherImage.Source = new BitmapImage(new Uri("/images/broken clouds.png", UriKind.Relative));
+				else if (desc == "mist") weatherImage.Source = new BitmapImage(new Uri("/images/mist.png", UriKind.Relative));
+				else if (desc == "shower rain") weatherImage.Source = new BitmapImage(new Uri("/images/shower rain.png", UriKind.Relative));
+				else if (desc == "snow") weatherImage.Source = new BitmapImage(new Uri("/images/snow.png", UriKind.Relative));
+
+
+				lbl_description.Content = string.Format("{0}", desc);
 
 			}
 				

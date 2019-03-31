@@ -6,10 +6,11 @@
         xmlns:local="clr-namespace:VremenskaPrognoza"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-		<Label x:Name="lbl_country" Content="Label" HorizontalAlignment="Left" Margin="90,53,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_cityName" Content="Label" HorizontalAlignment="Left" Margin="319,79,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_temp" Content="Label" HorizontalAlignment="Left" Margin="453,180,0,0" VerticalAlignment="Top"/>
-
+	<Grid>
+		<Label x:Name="lbl_country" Content="country&#xD;&#xA;" HorizontalAlignment="Left" Margin="79,72,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_cityName" Content="city" HorizontalAlignment="Left" Margin="90,41,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_temp" Content="temp" HorizontalAlignment="Left" Margin="80,114,0,0" VerticalAlignment="Top"/>
+		<Image x:Name="weatherImage" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="81" Margin="61,203,0,0"/>
+		<Label x:Name="lbl_description" Content="description" HorizontalAlignment="Left" Margin="61,150,0,0" VerticalAlignment="Top"/>
 	</Grid>
 </Window>
