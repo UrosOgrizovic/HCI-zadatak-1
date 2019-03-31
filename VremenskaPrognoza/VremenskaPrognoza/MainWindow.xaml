@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
-    </Grid>
+		<Label x:Name="lbl_country" Content="Label" HorizontalAlignment="Left" Margin="90,53,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_cityName" Content="Label" HorizontalAlignment="Left" Margin="319,79,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_temp" Content="Label" HorizontalAlignment="Left" Margin="453,180,0,0" VerticalAlignment="Top"/>
+
+	</Grid>
 </Window>
