@@ -12,5 +12,18 @@
 		<Label x:Name="lbl_temp" Content="temp" HorizontalAlignment="Left" Margin="80,114,0,0" VerticalAlignment="Top"/>
 		<Image x:Name="weatherImage" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="81" Margin="61,203,0,0"/>
 		<Label x:Name="lbl_description" Content="description" HorizontalAlignment="Left" Margin="61,150,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_cityName_Copy" Content="Wind speed" HorizontalAlignment="Left" Margin="473,169,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_cond_2" Content="Conditions" HorizontalAlignment="Left" Margin="548,205,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_desc_2" Content="Description" HorizontalAlignment="Left" Margin="543,240,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_wind_2" Content="12" HorizontalAlignment="Left" Margin="569,168,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_temp_2" Content="26" HorizontalAlignment="Left" Margin="569,127,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_cityName_Copy5" Content="Forecast" HorizontalAlignment="Left" Margin="473,28,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_temp_2_Copy" Content="Temperature" HorizontalAlignment="Left" Margin="473,127,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_cond_2_Copy" Content="Conditions" HorizontalAlignment="Left" Margin="476,205,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_desc_2_Copy" Content="Description" HorizontalAlignment="Left" Margin="473,240,0,0" VerticalAlignment="Top"/>
+		<Label Content="Date" HorizontalAlignment="Left" Margin="484,54,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_date" Content="Date" HorizontalAlignment="Left" Margin="569,54,0,0" VerticalAlignment="Top"/>
+		<Label x:Name="lbl_time" Content="Time" HorizontalAlignment="Left" Margin="569,96,0,0" VerticalAlignment="Top"/>
+		<Label Content="Time" HorizontalAlignment="Left" Margin="484,96,0,0" VerticalAlignment="Top"/>
 	</Grid>
 </Window>
