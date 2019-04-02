@@ -1,4 +1,7 @@
 # HCI-zadatak-1  
+
+Weather forecast app in C# that fetches the data from [OpenWeatherMap](https://openweathermap.org/).
+
 Team members:  
 Đorđe Ivković, SW-54/2016  
 Uroš Ogrizović, SW-39/2016  
