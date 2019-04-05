@@ -43,9 +43,9 @@ namespace VremenskaPrognoza
 				WeatherInfo.Root output = result;
 
 
-				lbl_cityName.Content = string.Format("{0}", output.name);
-				lbl_country.Content = string.Format("{0}", output.sys.country);
-				lbl_temp.Content = string.Format("{0} \u00B0"+ "C", output.main.temp);
+				lbl_citycountry.Content = string.Format("{0}, {1}", output.name, output.sys.country);
+				
+				lbl_temp.Content = string.Format("Temperature: {0} \u00B0"+ "C", output.main.temp);
 				string desc = output.weather[0].description;
 
 				
@@ -53,14 +53,14 @@ namespace VremenskaPrognoza
 				else if (desc == "few clouds") weatherImage.Source = new BitmapImage(new Uri("/images/few clouds.png", UriKind.Relative));
 				else if (desc == "scattered clouds") weatherImage.Source = new BitmapImage(new Uri("/images/scattered clouds.png", UriKind.Relative));
 				else if (desc == "thunderstorm") weatherImage.Source = new BitmapImage(new Uri("/images/thunderstorm.png", UriKind.Relative));
-				else if (desc == "rain" || desc == "moderate rain") weatherImage.Source = new BitmapImage(new Uri("/images/rain.png", UriKind.Relative));
+				else if (desc == "rain" || desc == "moderate rain" || desc == "light rain") weatherImage.Source = new BitmapImage(new Uri("/images/rain.png", UriKind.Relative));
 				else if (desc == "broken clouds") weatherImage.Source = new BitmapImage(new Uri("/images/broken clouds.png", UriKind.Relative));
 				else if (desc == "mist") weatherImage.Source = new BitmapImage(new Uri("/images/mist.png", UriKind.Relative));
 				else if (desc == "shower rain") weatherImage.Source = new BitmapImage(new Uri("/images/shower rain.png", UriKind.Relative));
 				else if (desc == "snow") weatherImage.Source = new BitmapImage(new Uri("/images/snow.png", UriKind.Relative));
 
 				
-				lbl_description.Content = string.Format("{0}", desc);
+				lbl_description.Content = string.Format("Weather conditions: {0}", desc);
 
 			}
 				
@@ -77,36 +77,119 @@ namespace VremenskaPrognoza
 
 				weatherForecast forecast = Object;
 
+				Label currentDate = new Label();
+				currentDate.Name = "lbl_date0";
+				Label currentMinTemp = new Label();
+				currentMinTemp.Name = "lbl_min_temp0";
+				Label currentMaxTemp = new Label();
+				currentMaxTemp.Name = "lbl_max_temp0";
+				Label currentWeather = new Label();
+				currentWeather.Name = "lbl_weather0";
+
+
+				List<string> conditionsForDay = new List<string>(5);
+
+				double minTempForDay = 100;
+				double maxTempForDay = -100;
+				double tempForCurrentTime = 0;
+
+
 				// +1 in index = +3 hours
-				int forecastIndex = 5;
+				for (int forecastIndex = 0; forecastIndex < 40; forecastIndex++)
+				{
+					
+					//lbl_cond_2.Content = string.Format("{0}", forecast.list[forecastIndex].weather[0].main); // weather conditions
 
-				lbl_cond_2.Content = string.Format("{0}", forecast.list[forecastIndex].weather[0].main); // weather conditions
-				lbl_desc_2.Content = string.Format("{0}", forecast.list[forecastIndex].weather[0].description); // weather description
-				lbl_temp_2.Content = string.Format("{0} \u00B0" + "C", forecast.list[forecastIndex].main.temp); // temperature
-				lbl_wind_2.Content = string.Format("{0} km/h", forecast.list[forecastIndex].wind.speed); // wind speed
-				string dateTime = forecast.list[forecastIndex].dt_txt;
-				string date = dateTime.Split(' ')[0];
-				string dayOfMonth = date.Substring(date.Length - 2);
+					string dateTime = forecast.list[forecastIndex].dt_txt;
+					string date = dateTime.Split(' ')[0];
+					string dayOfMonth = date.Substring(date.Length - 2);
 
-				// converting month from number to text
-				string month = date.Substring(date.Length - 5, 2);
-				string dateTxt = "JAN";
-				if (month == "02") dateTxt = "FEB";
-				else if (month == "03") dateTxt = "MAR";
-				else if (month == "04") dateTxt = "APR";
-				else if (month == "05") dateTxt = "MAY";
-				else if (month == "06") dateTxt = "JUN";
-				else if (month == "07") dateTxt = "JUL";
-				else if (month == "08") dateTxt = "AUG";
-				else if (month == "09") dateTxt = "SEP";
-				else if (month == "10") dateTxt = "OCT";
-				else if (month == "11") dateTxt = "NOV";
-				else if (month == "12") dateTxt = "DEC";
+					// converting month from number to text
+					string month = date.Substring(date.Length - 5, 2);
+					string dateTxt = "JAN";
+					if (month == "02") dateTxt = "FEB";
+					else if (month == "03") dateTxt = "MAR";
+					else if (month == "04") dateTxt = "APR";
+					else if (month == "05") dateTxt = "MAY";
+					else if (month == "06") dateTxt = "JUN";
+					else if (month == "07") dateTxt = "JUL";
+					else if (month == "08") dateTxt = "AUG";
+					else if (month == "09") dateTxt = "SEP";
+					else if (month == "10") dateTxt = "OCT";
+					else if (month == "11") dateTxt = "NOV";
+					else if (month == "12") dateTxt = "DEC";
 
-				string year = date.Substring(0, 4);
-				string time = dateTime.Split(' ')[1].Substring(0, 5);
-				lbl_date.Content = dayOfMonth + "-" + dateTxt + "-" + year;
-				lbl_time.Content = time;
+					string year = date.Substring(0, 4);
+					string time = dateTime.Split(' ')[1].Substring(0, 5);
+
+					if (time == "00:00")
+					{
+
+						if (currentDate.Name == "lbl_date0")
+						{
+							currentDate = lbl_date1;
+							currentMinTemp = lbl_min_temp_1;
+							currentMaxTemp = lbl_max_temp_1;
+							if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
+							{
+								img1.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+							}
+							
+						}
+						else if (currentDate.Name == "lbl_date1")
+						{
+							currentDate = lbl_date2;
+							currentMinTemp = lbl_min_temp_2;
+							currentMaxTemp = lbl_max_temp_2;
+							if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
+							{
+								img2.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+							}
+						}
+						else if (currentDate.Name == "lbl_date2")
+						{
+							currentDate = lbl_date3;
+							currentMinTemp = lbl_min_temp_3;
+							currentMaxTemp = lbl_max_temp_3;
+							if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
+							{
+								img3.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+							}
+						}
+						else if (currentDate.Name == "lbl_date3")
+						{
+							currentDate = lbl_date4;
+							currentMinTemp = lbl_min_temp_4;
+							currentMaxTemp = lbl_max_temp_4;
+							if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
+							{
+								img4.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+							}
+						}
+						else if (currentDate.Name == "lbl_date4") continue;
+
+
+						currentDate.Content = dayOfMonth + "-" + dateTxt + "-" + year;
+						
+
+						// reset min/max temperature
+						minTempForDay = 100;
+						maxTempForDay = -100;
+
+						conditionsForDay.Clear();
+
+					} else if (time == "21:00") {
+						currentMinTemp.Content = string.Format("{0} \u00B0" + "C", minTempForDay);
+						currentMaxTemp.Content = string.Format("{0} \u00B0" + "C", maxTempForDay);
+					} else
+					{
+						tempForCurrentTime = forecast.list[forecastIndex].main.temp;
+						if (tempForCurrentTime < minTempForDay) minTempForDay = tempForCurrentTime;
+						if (tempForCurrentTime > maxTempForDay) maxTempForDay = tempForCurrentTime;
+
+					}
+					
+				}
 			}
 		}
 	}

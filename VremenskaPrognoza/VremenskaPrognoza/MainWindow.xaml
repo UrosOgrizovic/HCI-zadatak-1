@@ -7,23 +7,51 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 	<Grid>
-		<Label x:Name="lbl_country" Content="country&#xD;&#xA;" HorizontalAlignment="Left" Margin="79,72,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_cityName" Content="city" HorizontalAlignment="Left" Margin="90,41,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_temp" Content="temp" HorizontalAlignment="Left" Margin="80,114,0,0" VerticalAlignment="Top"/>
-		<Image x:Name="weatherImage" HorizontalAlignment="Left" Height="81" VerticalAlignment="Top" Width="81" Margin="61,203,0,0"/>
-		<Label x:Name="lbl_description" Content="description" HorizontalAlignment="Left" Margin="61,150,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_cityName_Copy" Content="Wind speed" HorizontalAlignment="Left" Margin="473,169,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_cond_2" Content="Conditions" HorizontalAlignment="Left" Margin="548,205,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_desc_2" Content="Description" HorizontalAlignment="Left" Margin="543,240,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_wind_2" Content="12" HorizontalAlignment="Left" Margin="569,168,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_temp_2" Content="26" HorizontalAlignment="Left" Margin="569,127,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_cityName_Copy5" Content="Forecast" HorizontalAlignment="Left" Margin="473,28,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_temp_2_Copy" Content="Temperature" HorizontalAlignment="Left" Margin="473,127,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_cond_2_Copy" Content="Conditions" HorizontalAlignment="Left" Margin="476,205,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_desc_2_Copy" Content="Description" HorizontalAlignment="Left" Margin="473,240,0,0" VerticalAlignment="Top"/>
-		<Label Content="Date" HorizontalAlignment="Left" Margin="484,54,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_date" Content="Date" HorizontalAlignment="Left" Margin="569,54,0,0" VerticalAlignment="Top"/>
-		<Label x:Name="lbl_time" Content="Time" HorizontalAlignment="Left" Margin="569,96,0,0" VerticalAlignment="Top"/>
-		<Label Content="Time" HorizontalAlignment="Left" Margin="484,96,0,0" VerticalAlignment="Top"/>
+		<StackPanel Margin="10,60,528.6,10" Orientation="Vertical">
+			<Image x:Name="weatherImage" HorizontalAlignment="Left" Height="189" VerticalAlignment="Top" Width="122" Margin="65,0,0,0"/>
+			<Label x:Name="lbl_citycountry" Content="city, country" HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" HorizontalContentAlignment="Center" Height="31"/>
+			<Label x:Name="lbl_temp" Content="temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="44" Width="255" HorizontalContentAlignment="Center"/>
+			<Label x:Name="lbl_description" Content="description" HorizontalAlignment="Left" VerticalAlignment="Top" Height="51" Width="255" HorizontalContentAlignment="Center"/>
+		</StackPanel>
+		<Label x:Name="lbl_cityName_Copy5" Content="Forecast for next four days" HorizontalAlignment="Left" Margin="345,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="387" HorizontalContentAlignment="Center" FontSize="22"/>
+		<StackPanel Margin="311,67,43.6,287" Orientation="Horizontal">
+			<Label x:Name="lbl_date1" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="95" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_temp_2_Copy" Content="Min temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="66" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_min_temp_1" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="52" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_temp_2_Copy2" Content="Max temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="84" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_max_temp_1" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="54" VerticalContentAlignment="Center"/>
+			<Image x:Name="img1" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="64"/>
+		</StackPanel>
+		<GridSplitter HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="5"/>
+		<GridSplitter HorizontalAlignment="Left" Height="420" Margin="270,10,0,-10" VerticalAlignment="Top" Width="26"/>
+		<StackPanel Margin="311,152,43.6,202" Orientation="Horizontal">
+			<Label x:Name="lbl_date2" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="95" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_temp_2_Copy3" Content="Min temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="67" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_min_temp_2" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="55" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_temp_2_Copy4" Content="Max temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="84" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_max_temp_2" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="54" VerticalContentAlignment="Center"/>
+			<Image x:Name="img2" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="64"/>
+		</StackPanel>
+		<StackPanel Margin="311,235,43.6,119" Orientation="Horizontal">
+			<Label x:Name="lbl_date3" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="95" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_temp_2_Copy6" Content="Min temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="68" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_min_temp_3" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="54" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_temp_2_Copy7" Content="Max temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="84" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_max_temp_3" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="54" VerticalContentAlignment="Center"/>
+			<Image x:Name="img3" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="64"/>
+		</StackPanel>
+		<StackPanel Margin="311,316,43.6,38" Orientation="Horizontal">
+			<Label x:Name="lbl_date4" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="95" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_temp_2_Copy9" Content="Min temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="67" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_min_temp_4" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="55" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_temp_2_Copy10" Content="Max temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="84" VerticalContentAlignment="Center"/>
+			<Label x:Name="lbl_max_temp_4" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="54" VerticalContentAlignment="Center"/>
+			<Image x:Name="img4" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="64"/>
+		</StackPanel>
+		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="308,133,0,0" VerticalAlignment="Top" Width="442"/>
+		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="311,218,0,0" VerticalAlignment="Top" Width="442"/>
+		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="310,310,0,0" VerticalAlignment="Top" Width="443"/>
+		<TextBox HorizontalAlignment="Left" Height="33" Margin="10,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="194" VerticalContentAlignment="Center"/>
+		<Button Content="Search" HorizontalAlignment="Left" Margin="209,18,0,0" VerticalAlignment="Top" Width="56" Height="31"/>
 	</Grid>
 </Window>

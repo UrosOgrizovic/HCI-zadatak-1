@@ -100,12 +100,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Resource Include="images\scattered clouds.png" />
-    <Resource Include="images\few clouds.png" />
-    <Resource Include="images\rain.png" />
+    <Resource Include="images\broken clouds.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="images\clear sky.png" />
+    <Resource Include="images\few clouds.png" />
+    <Resource Include="images\mist.png" />
+    <Resource Include="images\rain.png" />
+    <Resource Include="images\scattered clouds.png" />
+    <Resource Include="images\shower rain.png" />
+    <Resource Include="images\snow.png" />
     <Resource Include="images\thunderstorm.png" />
+    <Resource Include="images\umbrella.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
