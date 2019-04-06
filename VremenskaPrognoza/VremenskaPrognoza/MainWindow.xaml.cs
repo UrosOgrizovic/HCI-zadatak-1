@@ -242,6 +242,19 @@ namespace VremenskaPrognoza
             
                 var result = JsonConvert.DeserializeObject<locationInfo.Root>(json);
                 cityName = result.city;
+				for (int i = 0; i < cityName.Length; i++)
+				{
+					if (cityName[i] == 'š')
+					{
+						cityName = cityName.Substring(0, i) + 's' + cityName.Substring(i+1);
+					} else if (cityName[i] == 'č' || cityName[i] == 'ć')
+					{
+						cityName = cityName.Substring(0, i) + 'c' + cityName.Substring(i + 1);
+					} else if (cityName[i] == 'ž')
+					{
+						cityName = cityName.Substring(0, i) + 'z' + cityName.Substring(i + 1);
+					} 
+				}
             }
         }
     }
