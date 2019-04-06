@@ -47,7 +47,6 @@ namespace VremenskaPrognoza
 			public main main { get; set; }
 			public List<weather> weather { get; set; }
 			public coord coordinate { get; set; }
-
 		}
 	}
 }
