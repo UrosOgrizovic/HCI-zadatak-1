@@ -88,7 +88,8 @@ namespace VremenskaPrognoza
                 currentMaxTemp.Name = "lbl_max_temp0";
                 Label currentWeather = new Label();
                 currentWeather.Name = "lbl_weather0";
-
+				Label currentDay = new Label();
+				currentDay.Name = "lbl_day0";
 
                 List<string> conditionsForDay = new List<string>(5);
 
@@ -107,8 +108,9 @@ namespace VremenskaPrognoza
                     string date = dateTime.Split(' ')[0];
                     string dayOfMonth = date.Substring(date.Length - 2);
 
-                    // converting month from number to text
-                    string month = date.Substring(date.Length - 5, 2);
+					
+					// converting month from number to text
+					string month = date.Substring(date.Length - 5, 2);
                     string dateTxt = "JAN";
                     if (month == "02") dateTxt = "FEB";
                     else if (month == "03") dateTxt = "MAR";
@@ -124,13 +126,29 @@ namespace VremenskaPrognoza
 
                     string year = date.Substring(0, 4);
                     string time = dateTime.Split(' ')[1].Substring(0, 5);
+					
+					// day of the week parsing
+					DateTime myDate = DateTime.ParseExact(date, "yyyy-MM-dd",
+									   System.Globalization.CultureInfo.InvariantCulture);
+					string dayOTW = myDate.DayOfWeek.ToString();
+					string dayOfTheWeek = "";
 
-                    if (time == "00:00")
+					if (dayOTW == "Monday") dayOfTheWeek = "MON";
+					else if (dayOTW == "Tuesday") dayOfTheWeek = "TUE";
+					else if (dayOTW == "Wednesday") dayOfTheWeek = "WED";
+					else if (dayOTW == "Thursday") dayOfTheWeek = "THU";
+					else if (dayOTW == "Friday") dayOfTheWeek = "FRI";
+					else if (dayOTW == "Saturday") dayOfTheWeek = "SAT";
+					else if (dayOTW == "Sunday") dayOfTheWeek = "SUN";
+					
+
+					if (time == "00:00")
                     {
 
                         if (currentDate.Name == "lbl_date0")
                         {
                             currentDate = lbl_date1;
+							currentDay = lbl_day1;
                             currentMinTemp = lbl_min_temp_1;
                             currentMaxTemp = lbl_max_temp_1;
                             if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
@@ -142,7 +160,8 @@ namespace VremenskaPrognoza
                         else if (currentDate.Name == "lbl_date1")
                         {
                             currentDate = lbl_date2;
-                            currentMinTemp = lbl_min_temp_2;
+							currentDay = lbl_day2;
+							currentMinTemp = lbl_min_temp_2;
                             currentMaxTemp = lbl_max_temp_2;
                             if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
                             {
@@ -152,7 +171,8 @@ namespace VremenskaPrognoza
                         else if (currentDate.Name == "lbl_date2")
                         {
                             currentDate = lbl_date3;
-                            currentMinTemp = lbl_min_temp_3;
+							currentDay = lbl_day3;
+							currentMinTemp = lbl_min_temp_3;
                             currentMaxTemp = lbl_max_temp_3;
                             if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
                             {
@@ -162,7 +182,8 @@ namespace VremenskaPrognoza
                         else if (currentDate.Name == "lbl_date3")
                         {
                             currentDate = lbl_date4;
-                            currentMinTemp = lbl_min_temp_4;
+							currentDay = lbl_day4;
+							currentMinTemp = lbl_min_temp_4;
                             currentMaxTemp = lbl_max_temp_4;
                             if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
                             {
@@ -173,7 +194,7 @@ namespace VremenskaPrognoza
 
 
                         currentDate.Content = dayOfMonth + "-" + dateTxt + "-" + year;
-
+						currentDay.Content = dayOfTheWeek;
 
                         // reset min/max temperature
                         minTempForDay = 100;
