@@ -187,7 +187,7 @@ namespace VremenskaPrognoza
                             currentMaxTemp = lbl_max_temp_4;
                             if (forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
                             {
-                                img4.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+                               img4.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
                             }
                         }
                         else if (currentDate.Name == "lbl_date4") continue;

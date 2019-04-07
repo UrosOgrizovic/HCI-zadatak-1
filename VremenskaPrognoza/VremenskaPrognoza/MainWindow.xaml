@@ -6,55 +6,153 @@
         xmlns:local="clr-namespace:VremenskaPrognoza"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-	<Grid>
-		<StackPanel Margin="10,91,529,10" Orientation="Vertical">
-			<Image x:Name="weatherImage" HorizontalAlignment="Left" Height="189" VerticalAlignment="Top" Width="122" Margin="65,0,0,0"/>
-			<Label x:Name="lbl_citycountry" Content="city, country" HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" HorizontalContentAlignment="Center" Height="31"/>
-			<Label x:Name="lbl_temp" Content="temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="44" Width="255" HorizontalContentAlignment="Center"/>
-			<Label x:Name="lbl_description" Content="description" HorizontalAlignment="Left" VerticalAlignment="Top" Height="33" Width="255" HorizontalContentAlignment="Center" Margin="0,0,-0.6,0"/>
-		</StackPanel>
-		<Label x:Name="lbl_cityName_Copy5" Content="Forecast for next four days" HorizontalAlignment="Left" Margin="345,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="387" HorizontalContentAlignment="Center" FontSize="22"/>
-		<StackPanel Margin="311,87,43.6,267" Orientation="Horizontal">
-			<Label x:Name="lbl_date1" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="95" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_day1" Content="Day" HorizontalAlignment="Left" VerticalAlignment="Top" Height="57" Width="45" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_min_temp_1" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="71" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_max_temp_1" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="67" VerticalContentAlignment="Center" />
-			<Image x:Name="img1" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="64"/>
-		</StackPanel>
-		<GridSplitter HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="5"/>
-		<GridSplitter HorizontalAlignment="Left" Height="420" Margin="270,10,0,-10" VerticalAlignment="Top" Width="26"/>
-		<StackPanel Margin="311,172,43.6,182" Orientation="Horizontal">
-			<Label x:Name="lbl_date2" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="95" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_day2" Content="Day" HorizontalAlignment="Left" VerticalAlignment="Top" Height="61" Width="45" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_min_temp_2" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="71" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_max_temp_2" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="64" VerticalContentAlignment="Center" />
-			<Image x:Name="img2" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="64"/>
-		</StackPanel>
-		<StackPanel Margin="311,255,43.6,99" Orientation="Horizontal">
-			<Label x:Name="lbl_date3" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="95" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_day3" Content="Day" HorizontalAlignment="Left" VerticalAlignment="Top" Height="54" Width="45" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_min_temp_3" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="71" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_max_temp_3" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="63" VerticalContentAlignment="Center" />
-			<Image x:Name="img3" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="64"/>
-		</StackPanel>
-		<StackPanel Margin="311,336,43.6,18" Orientation="Horizontal">
-			<Label x:Name="lbl_date4" Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="95" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_day4" Content="Day" HorizontalAlignment="Left" VerticalAlignment="Top" Height="54" Width="45" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_min_temp_4" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="71" VerticalContentAlignment="Center"/>
-			<Label x:Name="lbl_max_temp_4" Content="26" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="58" VerticalContentAlignment="Center" />
-			<Image x:Name="img4" HorizontalAlignment="Left" Height="56" VerticalAlignment="Top" Width="64"/>
-		</StackPanel>
-		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="308,153,0,0" VerticalAlignment="Top" Width="442"/>
-		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="311,238,0,0" VerticalAlignment="Top" Width="442"/>
-		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="310,330,0,0" VerticalAlignment="Top" Width="443"/>
-		<TextBox x:Name="txtBox" HorizontalAlignment="Left" Height="33" Margin="10,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" VerticalContentAlignment="Center"/>
-		<Button Content="Search" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="66" Height="31" Click="searchEvent"/>
-		<Button x:Name="button" Content="My location" HorizontalAlignment="Left" Margin="95,55,0,0" VerticalAlignment="Top" Width="75" Height="31" Click="locationEvent"/>
-		<Button x:Name="button1" Content="Refresh" HorizontalAlignment="Left" Margin="188,55,0,0" VerticalAlignment="Top" Width="75" Height="31" Click="refreshEvent"/>
-		<Label x:Name="lbl_temp_2_Copy" Content="Min temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="65" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="446,55,0,0"/>
-		<Label x:Name="lbl_temp_2_Copy2" Content="Max temp" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="66" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="516,55,0,0"/>
-		<Label Content="Day" HorizontalAlignment="Left" Margin="401,55,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Width="45" Height="27"/>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.35*"></ColumnDefinition>
+            <ColumnDefinition Width="0.65*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-		<Label Content="Date" HorizontalAlignment="Left" Margin="311,55,0,0" VerticalAlignment="Top" Width="85" HorizontalContentAlignment="Center" Height="27"/>
-	</Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--left side-->
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"></RowDefinition>
+                <RowDefinition Height="0.8*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <!-- top (search)-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="txtBox" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" VerticalContentAlignment="Center"/>
+                <Button Content="Search" Grid.Row="1" Grid.Column="0"  VerticalAlignment="Stretch" Click="searchEvent"/>
+                <Button x:Name="button" Grid.Row="1" Grid.Column="1" Content="My location" VerticalAlignment="Stretch" Click="locationEvent"/>
+                <Button x:Name="button1" Grid.Row="1" Grid.Column="2" Content="Refresh" VerticalAlignment="Stretch" Click="refreshEvent"/>
+            </Grid>
+
+            <!-- bottom (picture and basic info about city weather-->
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <Image x:Name="weatherImage" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="45,0"/>
+                <Label x:Name="lbl_citycountry" Content="city, country" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="255" HorizontalContentAlignment="Center" Height="52"/>
+                <Label x:Name="lbl_temp" Content="temp" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="44" Width="255" HorizontalContentAlignment="Center"/>
+                <Label x:Name="lbl_description" Content="description" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="33" Width="255" HorizontalContentAlignment="Center" Margin="0,0,-0.6,0"/>
+            </StackPanel>
+        </Grid>
+
+        <!--right side-->
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- title -->
+            <Label Grid.Row="0" x:Name="lbl_cityName_Copy5" Content="Forecast for next four days" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="22"/>
+
+            <!-- headers -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Content="Date" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" />
+                <Label Grid.Column="1" Content="Day" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" />
+                <Label Grid.Column="2" x:Name="lbl_temp_2_Copy" Content="Min temp" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Label Grid.Column="3" x:Name="lbl_temp_2_Copy2" Content="Max temp" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Label Grid.Column="4" x:Name="lbl_temp_2_Copy3" Content="Rainy" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            </Grid>
+
+            <!-- day one -->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" x:Name="lbl_date1" Content="Date" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="1" x:Name="lbl_day1" Content="Day" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="2" x:Name="lbl_min_temp_1" Content="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="3" x:Name="lbl_max_temp_1" Content="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                <Image Grid.Column="4" x:Name="img1" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="64"/>
+            </Grid>
+
+            <!-- day two -->
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" x:Name="lbl_date2" Content="Date" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="1" x:Name="lbl_day2" Content="Day" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="2" x:Name="lbl_min_temp_2" Content="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="3" x:Name="lbl_max_temp_2" Content="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                <Image Grid.Column="4" x:Name="img2" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="64"/>
+            </Grid>
+
+            <!-- day three -->
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" x:Name="lbl_date3" Content="Date" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="1" x:Name="lbl_day3" Content="Day" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="2" x:Name="lbl_min_temp_3" Content="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="3" x:Name="lbl_max_temp_3" Content="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                <Image Grid.Column="4" x:Name="img3" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="64"/>
+            </Grid>
+
+            <!-- day four -->
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" x:Name="lbl_date4" Content="Date" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="1" x:Name="lbl_day4" Content="Day" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="2" x:Name="lbl_min_temp_4" Content="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Grid.Column="3" x:Name="lbl_max_temp_4" Content="26" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                <Image Grid.Column="4" x:Name="img4" HorizontalAlignment="Center" Height="56" VerticalAlignment="Center" Width="64"/>
+            </Grid>
+        </Grid>
+    </Grid>
 </Window>
