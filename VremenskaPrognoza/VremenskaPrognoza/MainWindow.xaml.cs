@@ -51,16 +51,16 @@ namespace VremenskaPrognoza
                 lbl_temp.Content = string.Format("Temperature: {0} \u00B0" + "C", output.main.temp);
                 string desc = output.weather[0].description;
 
-
+				
                 if (desc == "clear sky") weatherImage.Source = new BitmapImage(new Uri("/images/clear sky.png", UriKind.Relative));
                 else if (desc == "few clouds") weatherImage.Source = new BitmapImage(new Uri("/images/few clouds.png", UriKind.Relative));
                 else if (desc == "scattered clouds") weatherImage.Source = new BitmapImage(new Uri("/images/scattered clouds.png", UriKind.Relative));
                 else if (desc == "thunderstorm") weatherImage.Source = new BitmapImage(new Uri("/images/thunderstorm.png", UriKind.Relative));
-                else if (desc == "rain" || desc == "moderate rain" || desc == "light rain") weatherImage.Source = new BitmapImage(new Uri("/images/rain.png", UriKind.Relative));
+                else if (desc.Contains("rain") || desc.Contains("drizzle")) weatherImage.Source = new BitmapImage(new Uri("/images/rain.png", UriKind.Relative));
                 else if (desc == "broken clouds") weatherImage.Source = new BitmapImage(new Uri("/images/broken clouds.png", UriKind.Relative));
-                else if (desc == "mist") weatherImage.Source = new BitmapImage(new Uri("/images/mist.png", UriKind.Relative));
+                else if (desc == "mist" || desc == "haze") weatherImage.Source = new BitmapImage(new Uri("/images/mist.png", UriKind.Relative));
                 else if (desc == "shower rain") weatherImage.Source = new BitmapImage(new Uri("/images/shower rain.png", UriKind.Relative));
-                else if (desc == "snow") weatherImage.Source = new BitmapImage(new Uri("/images/snow.png", UriKind.Relative));
+                else if (desc.Contains("snow")) weatherImage.Source = new BitmapImage(new Uri("/images/snow.png", UriKind.Relative));
 
 
                 lbl_description.Content = string.Format("Weather conditions: {0}", desc);
@@ -80,7 +80,12 @@ namespace VremenskaPrognoza
 
                 weatherForecast forecast = Object;
 
-                Label currentDate = new Label();
+				img1.Source = new BitmapImage(new Uri("", UriKind.Relative));
+				img2.Source = new BitmapImage(new Uri("", UriKind.Relative));
+				img3.Source = new BitmapImage(new Uri("", UriKind.Relative));
+				img4.Source = new BitmapImage(new Uri("", UriKind.Relative));
+
+				Label currentDate = new Label();
                 currentDate.Name = "lbl_date0";
                 Label currentMinTemp = new Label();
                 currentMinTemp.Name = "lbl_min_temp0";
@@ -97,13 +102,14 @@ namespace VremenskaPrognoza
                 double maxTempForDay = -100;
                 double tempForCurrentTime = 0;
 
+				bool afterToday = false;
+
 
                 // +1 in index = +3 hours
                 for (int forecastIndex = 0; forecastIndex < 40; forecastIndex++)
                 {
 
-                    //lbl_cond_2.Content = string.Format("{0}", forecast.list[forecastIndex].weather[0].main); // weather conditions
-
+                    
                     string dateTime = forecast.list[forecastIndex].dt_txt;
                     string date = dateTime.Split(' ')[0];
                     string dayOfMonth = date.Substring(date.Length - 2);
@@ -141,12 +147,34 @@ namespace VremenskaPrognoza
 					else if (dayOTW == "Saturday") dayOfTheWeek = "SAT";
 					else if (dayOTW == "Sunday") dayOfTheWeek = "SUN";
 					
+					if (afterToday && time != "00:00" && forecast.list[forecastIndex].weather[0].main.ToUpper().Contains("RAIN"))
+					{
+						if (currentDate.Name == "lbl_date1")
+						{
+							img1.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+						}
+						else if (currentDate.Name == "lbl_date2")
+						{
+							img2.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+						}
+						else if (currentDate.Name == "lbl_date3")
+						{
+							img3.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+						}
+						else if (currentDate.Name == "lbl_date4")
+						{
+							img4.Source = new BitmapImage(new Uri("/images/umbrella.png", UriKind.Relative));
+						}
+
+					}
+
 
 					if (time == "00:00")
                     {
 
                         if (currentDate.Name == "lbl_date0")
                         {
+							afterToday = true;
                             currentDate = lbl_date1;
 							currentDay = lbl_day1;
                             currentMinTemp = lbl_min_temp_1;
